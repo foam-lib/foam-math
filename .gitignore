@@ -1,0 +1,6 @@
+.idea
+.temp
+.DS
+node_modules/
+bin/assets/fonts/suisse-intl-mono
+bin/assets/fonts/trio-grotesk
