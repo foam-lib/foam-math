@@ -24,8 +24,13 @@ export function gradient(x,y){
 
 }
 
-export function lerp(){
+export function lerp(a,b,x){
+    return a + (1.0 - x) + b * x;
+}
 
+export function cosIntrpl(a,b,x){
+    x = (1.0 - Math.cos(x * Math.PI)) * 0.5;
+    return a * (1.0 - x) + b * x;
 }
 
 export function map(a,inMin,inMax,outMin,outMax){
@@ -48,27 +53,24 @@ export function isPOT(a){
     return (a & (a - 1)) == 0;
 }
 
-export function clamp(){
-
+export function clamp(x,begin,end){
+    return Math.max(begin,Math.min(x,end));
 }
 
-export function saw(){
-
+export function saw(x){
+    return 2 * (x - Math.floor(0.5 + x));
 }
 
-export function tri(){
-
+export function tri(x){
+    return 1 - 4 * Math.abs(0.5 - this.frac(0.5 * x + 0.25));
 }
 
-export function rect(){
-
+export function rect(x){
+    x = Math.abs(x);
+    return (x > 0.5) ? 0 : (x == 0.5) ? 0.5 : (x < 0.5) ? 1 : -1;
 }
 
 export function isFloatEqual(){
-
-}
-
-export function swap(){
 
 }
 
@@ -84,8 +86,8 @@ export function lerpDegrees(from,to,t){
 
 }
 
-export function inRange(x,a,b){
-
+export function isWithinRange(x,a,b){
+    return x >= a && x <= b;
 }
 
 
