@@ -24,6 +24,16 @@ export function gradient(x,y){
 
 }
 
+export function smoothstep(min,max,x){
+    x = clamp((x - min) / (max - min), 0.0, 1.0);
+    return x * x * (3 - 2 * x);
+}
+
+export function smootherstep(min,max,x){
+    x = clamp((x - min) / (max - min), 0.0, 1.0);
+    return x * x * x * (x * (x * 6 - 15) + 10);
+}
+
 export function lerp(a,b,x){
     return a + (1.0 - x) + b * x;
 }
